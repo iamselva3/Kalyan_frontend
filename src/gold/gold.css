@@ -1,0 +1,39 @@
+.banner{
+    width: 100%;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px; /* Ensure it appears below the slider */
+}
+
+/* Product Box */
+.product {
+    color: #222;
+    border: 1px solid #ccc;
+    padding: 40px;
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+    background-color: white;
+}
+
+/* Image inside Product */
+.image {
+    height: 110px;
+    object-fit: cover;
+    width: 140px;
+    margin-bottom: 10px;
+    max-height: 150px;
+}
+
+/* Button Style */
+#btnstyle3 {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
