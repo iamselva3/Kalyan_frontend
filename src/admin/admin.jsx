@@ -33,7 +33,7 @@ const Admin = () => {
                   formData.append(key, value);
                 });
           
-                const response = await axios.post("http://localhost:8000/api/product_details", formData, {
+                const response = await axios.post(`${process.env.REACT_APP_API_URL}/product_details`, formData, {
                   headers: { "Content-Type": "multipart/form-data" },
                 });
           
@@ -51,7 +51,7 @@ const Admin = () => {
             useEffect(() => {
               const fetchData = async () => {
                 try {
-                  const response = await axios.get("http://localhost:8000/api/products");
+                  const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/products`);
                   setProducts(response.data);
                 } catch (error) {
                   console.log("Error while fetching data", error);
@@ -62,7 +62,7 @@ const Admin = () => {
           
             const deleteProduct = async (productId) => {
               try {
-                await axios.delete(`http://localhost:8000/api/delete/product/${productId}`);
+                await axios.delete(`${process.env.REACT_APP_API_URL}/api/delete/product/${productId}`);
                 setProducts((prevProducts) => prevProducts.filter((product) => product._id !== productId));
               } catch (error) {
                 console.log("Error deleting product:", error);
@@ -154,7 +154,7 @@ const Admin = () => {
                   <td>
                     {product.image ? (
                       <img
-                        src={`http://localhost:8000${product.image}`}
+                        src={`${process.env.REACT_APP_API_URL}${product.image}`}
                         alt="Product"
                         width="60"
                         height="60"

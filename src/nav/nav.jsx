@@ -13,7 +13,7 @@ const Navbar = () => {
       const fetchSuggestions = async () => {
         if (query.length > 1) {
           try {
-            const res = await axios.get(`http://localhost:8000/api/search/products?q=${query}`);
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/search/products?q=${query}`);
             setSuggestions(res.data);
           } catch (err) {
             console.error("Error fetching suggestions:", err);

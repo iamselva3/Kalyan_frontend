@@ -21,10 +21,10 @@ const Diamondupdate = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/product1/${id}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/product1/${id}`)
       .then((response) => {
         setProduct(response.data);
-        setPreview(`http://localhost:8000${response.data.image}`);
+        setPreview(`${process.env.REACT_APP_API_URL}${response.data.image}`);
       })
       .catch((error) => {
         console.log(error);
@@ -57,7 +57,7 @@ const Diamondupdate = () => {
     }
 
     try {
-      await axios.put(`http://localhost:8000/api/update/product1/${id}`, formData, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/update/product1/${id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

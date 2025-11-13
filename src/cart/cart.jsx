@@ -60,7 +60,7 @@ const Wallet = () => {
             <div className="wallet-list">
               {cart.map((stock, index) => (
                 <div key={index} className="wallet-card">
-                  <img src={`http://localhost:8000${stock.image}`} alt={stock.name} />
+                  <img src={`${process.env.REACT_APP_API_URL}${stock.image}`} alt={stock.name} />
                   <h3>{stock.name}</h3>
                   <p><strong>Description:</strong> {stock.description}</p>
                   <p><strong>Category:</strong> {stock.category}</p>

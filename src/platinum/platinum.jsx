@@ -15,7 +15,7 @@ const Platinum = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get("http://localhost:8000/api/product2");
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/product2`);
             setProducts(response.data);
           } catch (error) {
             console.log("Error while fetching data", error);
@@ -48,7 +48,7 @@ const Platinum = () => {
       {products.map((product) => (
         <div key={product._id} className="product">
           <img
-            src={`http://localhost:8000${product.image}`}
+            src={`${process.env.REACT_APP_API_URL}${product.image}`}
             alt={product.name}
             className="image"
           />

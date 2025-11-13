@@ -20,7 +20,7 @@ const Signup = () => {
     e.preventDefault();
     
     try {
-      await axios.post("http://localhost:8000/api/user", user, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/user`, user, {
         headers: { "Content-Type": "application/json" },
       });
       navigate("/");

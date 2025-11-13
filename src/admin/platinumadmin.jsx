@@ -35,7 +35,7 @@ const Platinumdadmin = () => {
         formData.append(key, value);
       });
 
-      const response = await axios.post("http://localhost:8000/api/product2", formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/product2`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -53,7 +53,7 @@ const Platinumdadmin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/product2");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/product2`);
         setProducts(response.data);
       } catch (error) {
         console.log("Error while fetching product2 data", error);
@@ -65,7 +65,7 @@ const Platinumdadmin = () => {
   // Delete product2
   const deleteProduct = async (productId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/delete/product2/${productId}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/delete/product2/${productId}`);
       setProducts((prevProducts) =>
         prevProducts.filter((product) => product._id !== productId)
       );
@@ -155,7 +155,7 @@ const Platinumdadmin = () => {
                   <td>
                     {product.image ? (
                       <img
-                        src={`http://localhost:8000${product.image}`}
+                        src={`${process.env.REACT_APP_API_URL}${product.image}`}
                         alt="Product"
                         width="60"
                         height="60"
